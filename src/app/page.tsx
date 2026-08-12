@@ -306,7 +306,7 @@ export default function AliPortfolio() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative mx-auto w-[140px] shrink-0 md:mx-0 md:w-[160px]"
+              className="relative mx-auto w-[180px] shrink-0 md:mx-0 md:w-[220px]"
             >
               <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[var(--op)] via-[var(--bleach)] to-[var(--hxh)] opacity-70 blur-[2px]" />
               <div className="relative overflow-hidden rounded-full border-2 border-[var(--base)] bg-[var(--surface)] shadow-lg">
