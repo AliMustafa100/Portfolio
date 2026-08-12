@@ -2,16 +2,21 @@
 @import "tw-animate-css";
 
 :root {
-  --base: #f7f9fc;
-  --base-soft: #e8eef8;
-  --accent-emerald: #1d4ed8;
-  --accent-emerald-soft: #2563eb;
-  --accent-amber: #3b82f6;
-  --accent-orange: #1e40af;
-  --ink: #0f172a;
-  --ink-muted: #475569;
-  --surface: #ffffff;
+  --base: #0f1729;
+  --base-soft: #1a2744;
+  --accent-emerald: #f59e0b;
+  --accent-emerald-soft: #fbbf24;
+  --accent-amber: #38bdf8;
+  --accent-orange: #ef4444;
+  --ink: #f8fafc;
+  --ink-muted: #b8c4d9;
+  --surface: #162338;
   --radius: 0.75rem;
+
+  --op: #f59e0b;
+  --gintama: #94a3b8;
+  --bleach: #818cf8;
+  --hxh: #34d399;
 
   --background: var(--base);
   --foreground: var(--ink);
@@ -19,29 +24,29 @@
   --card-foreground: var(--ink);
   --popover: var(--surface);
   --popover-foreground: var(--ink);
-  --primary: var(--accent-emerald);
-  --primary-foreground: #ffffff;
+  --primary: #f59e0b;
+  --primary-foreground: #111827;
   --secondary: var(--base-soft);
   --secondary-foreground: var(--ink);
   --muted: var(--base-soft);
   --muted-foreground: var(--ink-muted);
   --accent: var(--base-soft);
   --accent-foreground: var(--ink);
-  --destructive: #e5484d;
-  --border: #d8e1ef;
+  --destructive: #f87171;
+  --border: #2a3b5c;
   --input: var(--border);
-  --ring: color-mix(in srgb, var(--accent-emerald) 40%, transparent);
+  --ring: color-mix(in srgb, #f59e0b 40%, transparent);
 
-  --chart-1: var(--accent-emerald);
-  --chart-2: var(--accent-amber);
-  --chart-3: var(--accent-orange);
-  --chart-4: #64748b;
-  --chart-5: #94a3b8;
+  --chart-1: var(--op);
+  --chart-2: var(--bleach);
+  --chart-3: var(--hxh);
+  --chart-4: var(--gintama);
+  --chart-5: #64748b;
 
   --sidebar: var(--base);
   --sidebar-foreground: var(--ink);
-  --sidebar-primary: var(--accent-emerald);
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: #111827;
   --sidebar-accent: var(--base-soft);
   --sidebar-accent-foreground: var(--ink);
   --sidebar-border: var(--border);
@@ -102,13 +107,14 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     background-image:
-      radial-gradient(ellipse 80% 50% at 0% -10%, color-mix(in srgb, var(--accent-emerald) 12%, transparent), transparent),
-      radial-gradient(ellipse 55% 40% at 100% 0%, color-mix(in srgb, #93c5fd 18%, transparent), transparent);
+      radial-gradient(ellipse 80% 50% at 10% -10%, rgba(245, 158, 11, 0.18), transparent),
+      radial-gradient(ellipse 50% 40% at 95% 5%, rgba(129, 140, 248, 0.16), transparent),
+      radial-gradient(ellipse 40% 30% at 50% 100%, rgba(52, 211, 153, 0.1), transparent);
     background-attachment: fixed;
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--accent-emerald) 22%, white);
-    color: var(--ink);
+    background: color-mix(in srgb, #f59e0b 40%, transparent);
+    color: #ffffff;
   }
 }

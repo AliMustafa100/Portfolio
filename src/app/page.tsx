@@ -133,6 +133,8 @@ const links = {
   resume: "/AMResume.pdf",
 };
 
+const heroThemeImage = "/themes/onepiece.png";
+
 const fadeUp = {
   initial: { opacity: 0, y: 16 },
   whileInView: { opacity: 1, y: 0 },
@@ -222,7 +224,7 @@ export default function AliPortfolio() {
                   href={links.resume}
                   target="_blank"
                   rel="noreferrer"
-                  className="!bg-[var(--accent-emerald)] !text-white hover:!bg-[var(--accent-emerald-soft)]"
+                  className="!bg-[var(--primary)] !text-[var(--primary-foreground)] hover:!bg-[var(--accent-emerald-soft)]"
                 >
                   <FileDown className="mr-1.5 h-3.5 w-3.5" />
                   Resume
@@ -234,84 +236,95 @@ export default function AliPortfolio() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="mx-auto max-w-5xl px-5 pb-10 pt-14 md:pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55 }}
-          className="grid items-center gap-8 md:grid-cols-[1fr_auto]"
-        >
-          <div>
-            <p className="mb-3 text-sm font-medium tracking-wide text-[var(--accent-emerald)]">
-              New York, NY
-            </p>
-            <h1 className="text-4xl font-bold tracking-tight text-[var(--ink)] md:text-5xl">
-              Ali Mustafa
-            </h1>
-            <p className="mt-2 text-xl font-medium text-[var(--accent-emerald)] md:text-2xl">
-              Software Engineer
-            </p>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--ink-muted)]">
-              CS graduate from Queens College building full-stack web apps,
-              APIs, and client products — from Spring Boot services to Next.js
-              apps and Stripe-powered business sites.
-            </p>
+      <section id="home" className="relative overflow-hidden pb-10 pt-14 md:pt-20">
+        <div className="pointer-events-none absolute inset-0 opacity-40">
+          <img
+            src={heroThemeImage}
+            alt=""
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--base)]/65 via-[var(--base)]/85 to-[var(--base)]" />
+        </div>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild>
-                <a
-                  href={`mailto:${links.email}`}
-                  className="!bg-[var(--accent-emerald)] !text-white hover:!bg-[var(--accent-emerald-soft)]"
-                >
-                  <Mail className="mr-2 h-4 w-4" />
-                  Contact Me
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-[var(--border)] bg-white text-[var(--ink)] hover:bg-[var(--base-soft)]"
-              >
-                <a href={links.resume} target="_blank" rel="noreferrer">
-                  <FileDown className="mr-2 h-4 w-4" />
-                  Resume
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-[var(--border)] bg-white text-[var(--ink)] hover:bg-[var(--base-soft)]"
-              >
-                <a href={links.github} target="_blank" rel="noreferrer">
-                  <Github className="mr-2 h-4 w-4" />
-                  GitHub
-                </a>
-              </Button>
-            </div>
-          </div>
-
+        <div className="relative mx-auto max-w-5xl px-5">
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative mx-auto w-[140px] shrink-0 md:mx-0 md:w-[160px]"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="grid items-center gap-8 md:grid-cols-[1fr_auto]"
           >
-            <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[var(--accent-emerald)]/20 via-transparent to-sky-300/25 blur-sm" />
-            <div className="relative overflow-hidden rounded-full border-2 border-white bg-white shadow-[0_12px_32px_-16px_rgba(29,78,216,0.45)] ring-1 ring-[var(--border)]">
-              <img
-                src="/me.png"
-                alt="Ali Mustafa"
-                className="aspect-square w-full object-cover object-[50%_18%]"
-              />
+            <div>
+              <p className="mb-3 text-sm font-medium tracking-wide text-[var(--accent-emerald)]">
+                New York, NY
+              </p>
+              <h1 className="text-4xl font-bold tracking-tight text-[var(--ink)] md:text-5xl">
+                Ali Mustafa
+              </h1>
+              <p className="mt-2 text-xl font-medium text-[var(--accent-emerald)] md:text-2xl">
+                Software Engineer
+              </p>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--ink-muted)]">
+                CS graduate from Queens College building full-stack web apps,
+                APIs, and client products — from Spring Boot services to Next.js
+                apps and Stripe-powered business sites.
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Button asChild>
+                  <a
+                    href={`mailto:${links.email}`}
+                    className="!bg-[var(--primary)] !text-[var(--primary-foreground)] hover:!bg-[var(--accent-emerald-soft)]"
+                  >
+                    <Mail className="mr-2 h-4 w-4" />
+                    Contact Me
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-[var(--border)] bg-[var(--surface)] text-[var(--ink)] hover:bg-[var(--base-soft)]"
+                >
+                  <a href={links.resume} target="_blank" rel="noreferrer">
+                    <FileDown className="mr-2 h-4 w-4" />
+                    Resume
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-[var(--border)] bg-[var(--surface)] text-[var(--ink)] hover:bg-[var(--base-soft)]"
+                >
+                  <a href={links.github} target="_blank" rel="noreferrer">
+                    <Github className="mr-2 h-4 w-4" />
+                    GitHub
+                  </a>
+                </Button>
+              </div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative mx-auto w-[140px] shrink-0 md:mx-0 md:w-[160px]"
+            >
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[var(--op)] via-[var(--bleach)] to-[var(--hxh)] opacity-70 blur-[2px]" />
+              <div className="relative overflow-hidden rounded-full border-2 border-[var(--base)] bg-[var(--surface)] shadow-lg">
+                <img
+                  src="/me.png"
+                  alt="Ali Mustafa"
+                  className="aspect-square w-full object-cover object-[50%_18%]"
+                />
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       <main className="mx-auto max-w-5xl space-y-16 px-5 pb-24">
         {/* ABOUT */}
         <Section id="about" title="About" icon={<User className="h-4 w-4" />}>
-          <Card className="border-[--border] bg-white/80 shadow-sm backdrop-blur-sm">
+          <Card className="border-[--border] bg-[var(--surface)] shadow-sm backdrop-blur-sm">
             <CardContent className="pt-6 text-[15px] leading-relaxed text-[--ink-muted]">
               <p>
                 Outside of work I lift, watch anime, and chase good food across
@@ -330,7 +343,7 @@ export default function AliPortfolio() {
           title="Education"
           icon={<GraduationCap className="h-4 w-4" />}
         >
-          <Card className="border-[--border] bg-white/80 shadow-sm backdrop-blur-sm">
+          <Card className="border-[--border] bg-[var(--surface)]/90 shadow-sm backdrop-blur-sm">
             <CardContent className="space-y-5 pt-6">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>
@@ -400,7 +413,7 @@ export default function AliPortfolio() {
             {Object.entries(skills).map(([group, items]) => (
               <Card
                 key={group}
-                className="border-[--border] bg-white/80 shadow-sm backdrop-blur-sm"
+                className="border-[--border] bg-[var(--surface)]/90 shadow-sm backdrop-blur-sm"
               >
                 <CardHeader className="pb-3">
                   <CardTitle className="text-base font-semibold text-[--ink]">
@@ -433,7 +446,7 @@ export default function AliPortfolio() {
             {experience.map((job) => (
               <Card
                 key={job.company}
-                className="relative border-[--border] bg-white/80 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-md"
+                className="relative border-[--border] bg-[var(--surface)]/90 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-md"
               >
                 <CardHeader className="pb-2">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
@@ -487,7 +500,7 @@ export default function AliPortfolio() {
                 rel="noreferrer"
                 className="group block"
               >
-                <Card className="h-full border-[--border] bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-200 group-hover:-translate-y-0.5 group-hover:border-[--accent-emerald]/35 group-hover:shadow-md">
+                <Card className="h-full border-[--border] bg-[var(--surface)]/90 shadow-sm backdrop-blur-sm transition-all duration-200 group-hover:-translate-y-0.5 group-hover:border-[--accent-emerald]/35 group-hover:shadow-md">
                   <CardHeader className="pb-2">
                     <CardTitle className="flex items-start justify-between gap-3 text-lg font-semibold text-[--ink]">
                       <span>{p.name}</span>
@@ -517,7 +530,7 @@ export default function AliPortfolio() {
 
       <footer
         id="contact"
-        className="border-t border-[--border] bg-white/60 backdrop-blur-sm"
+        className="border-t border-[--border] bg-[var(--surface)]/70 backdrop-blur-sm"
       >
         <div className="mx-auto grid max-w-5xl items-center gap-6 px-5 py-12 md:grid-cols-2">
           <div>
@@ -532,7 +545,7 @@ export default function AliPortfolio() {
             <Button asChild>
               <a
                 href={`mailto:${links.email}`}
-                className="!bg-[var(--accent-emerald)] !text-white hover:!bg-[var(--accent-emerald-soft)]"
+                className="!bg-[var(--primary)] !text-[var(--primary-foreground)] hover:!bg-[var(--accent-emerald-soft)]"
               >
                 <Mail className="mr-2 h-4 w-4" />
                 Email
@@ -541,7 +554,7 @@ export default function AliPortfolio() {
             <Button
               asChild
               variant="outline"
-              className="border-[--border] bg-white text-[--ink] hover:bg-[--base-soft]"
+              className="border-[--border] bg-[var(--surface)] text-[var(--ink)] hover:bg-[--base-soft]"
             >
               <a href={links.linkedin} target="_blank" rel="noreferrer">
                 <Linkedin className="mr-2 h-4 w-4" />
@@ -551,7 +564,7 @@ export default function AliPortfolio() {
             <Button
               asChild
               variant="outline"
-              className="border-[--border] bg-white text-[--ink] hover:bg-[--base-soft]"
+              className="border-[--border] bg-[var(--surface)] text-[var(--ink)] hover:bg-[--base-soft]"
             >
               <a href={links.github} target="_blank" rel="noreferrer">
                 <Github className="mr-2 h-4 w-4" />
@@ -561,7 +574,7 @@ export default function AliPortfolio() {
             <Button
               asChild
               variant="outline"
-              className="border-[--border] bg-white text-[--ink] hover:bg-[--base-soft]"
+              className="border-[--border] bg-[var(--surface)] text-[var(--ink)] hover:bg-[--base-soft]"
             >
               <a href={links.resume} target="_blank" rel="noreferrer">
                 <FileDown className="mr-2 h-4 w-4" />
